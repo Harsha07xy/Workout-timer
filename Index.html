@@ -206,6 +206,44 @@
             transform: scale(0.95);
         }
 
+        /* Footer Styles */
+        footer {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 10px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+
+        .footer-copyright {
+            opacity: 0.6;
+            margin: 0;
+            font-size: 0.9em;
+        }
+
         /* Ad Interstitial Overlay */
         .interstitial-overlay {
             position: fixed;
@@ -271,6 +309,14 @@
             .ad-banner {
                 min-height: 80px;
                 padding: 5px;
+            }
+
+            .footer-links {
+                gap: 15px;
+            }
+
+            .footer-links a {
+                font-size: 0.9em;
             }
         }
 
@@ -362,6 +408,16 @@
             </div>
         </div>
     </div>
+
+    <!-- FOOTER SECTION ADDED -->
+    <footer>
+        <div class="footer-links">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms & Conditions</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+        <p class="footer-copyright">© 2025 Workout Timer App</p>
+    </footer>
 
     <!-- Interstitial Ad Overlay -->
     <div id="interstitial-overlay" class="interstitial-overlay">

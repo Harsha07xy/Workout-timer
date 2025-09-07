@@ -3,7 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workout Timer App</title>
+    <title>Workout Timer App | Free Online Fitness Interval Timer</title>
+    
+    <!-- SEO Meta Tags for Top Google Ranking -->
+    <meta name="description" content="Best free workout timer app with customizable intervals, sound alerts, and quick presets. Perfect for HIIT, gym workouts, and fitness routines. Works on all devices.">
+    <meta name="keywords" content="workout timer, interval timer, fitness timer, exercise timer, HIIT timer, gym timer, free timer app, online timer, fitness app, workout intervals">
+    <meta name="author" content="Harshit">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://yourdomain.com/">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Workout Timer - Ultimate Free Fitness Timer App">
+    <meta property="og:description" content="Free online workout timer with customizable intervals, sound alerts, and presets. Perfect for HIIT, gym workouts, and fitness routines.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourdomain.com/">
+    <meta property="og:image" content="https://yourdomain.com/workout-timer-preview.jpg">
+    <meta property="og:site_name" content="Workout Timer App">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Workout Timer - Ultimate Free Fitness Timer App">
+    <meta name="twitter:description" content="Free online workout timer with customizable intervals, sound alerts, and presets. Perfect for HIIT, gym workouts, and fitness routines.">
+    <meta name="twitter:image" content="https://yourdomain.com/workout-timer-preview.jpg">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Workout Timer App",
+        "description": "Free online workout timer with customizable intervals, sound alerts, and presets for fitness routines",
+        "url": "https://yourdomain.com/",
+        "author": {
+            "@type": "Person",
+            "name": "Harshit"
+        },
+        "applicationCategory": "Health & Fitness",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
     
     <style>
         * {
@@ -37,6 +80,14 @@
         .header h1 {
             font-size: 2em;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            color: white;
+        }
+
+        .header h2 {
+            font-size: 1em;
+            opacity: 0.9;
+            margin-top: 10px;
+            font-weight: normal;
         }
 
         /* AdsTerra Banner Ad Styles */
@@ -218,6 +269,46 @@
             transform: scale(0.95);
         }
 
+        /* SEO Content Section */
+        .seo-content {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .seo-content h2 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .seo-content p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .feature h4 {
+            margin-bottom: 10px;
+            font-size: 1.1em;
+        }
+
         /* Footer Styles */
         footer {
             background: rgba(255,255,255,0.1);
@@ -292,6 +383,10 @@
             .footer-links a {
                 font-size: 0.9em;
             }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Timer States */
@@ -332,10 +427,11 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
+    <main class="container">
+        <header class="header">
             <h1>💪 Workout Timer</h1>
-        </div>
+            <h2>Free Online Fitness Interval Timer</h2>
+        </header>
         
         <!-- AdsTerra Banner Ad 1 - Top -->
         <div class="ad-banner">
@@ -351,10 +447,10 @@
             <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
         </div>
         
-        <div class="timer-display">
+        <section class="timer-display">
             <div id="time-display">00:00:00</div>
             <div class="timer-status" id="timer-status">Ready to Start</div>
-        </div>
+        </section>
         
         <!-- AdsTerra Banner Ad 2 - After Timer -->
         <div class="ad-native">
@@ -370,28 +466,28 @@
             <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
         </div>
         
-        <div class="controls">
+        <section class="controls">
             <div class="time-inputs">
                 <div class="input-group">
                     <label for="hours">Hours</label>
-                    <input type="number" id="hours" min="0" max="23" value="0">
+                    <input type="number" id="hours" min="0" max="23" value="0" aria-label="Hours input">
                 </div>
                 <div class="input-group">
                     <label for="minutes">Minutes</label>
-                    <input type="number" id="minutes" min="0" max="59" value="5">
+                    <input type="number" id="minutes" min="0" max="59" value="5" aria-label="Minutes input">
                 </div>
                 <div class="input-group">
                     <label for="seconds">Seconds</label>
-                    <input type="number" id="seconds" min="0" max="59" value="0">
+                    <input type="number" id="seconds" min="0" max="59" value="0" aria-label="Seconds input">
                 </div>
             </div>
             
             <div class="button-group">
-                <button id="start-btn" class="btn primary">Start</button>
-                <button id="pause-btn" class="btn secondary" disabled>Pause</button>
-                <button id="reset-btn" class="btn danger">Reset</button>
+                <button id="start-btn" class="btn primary" aria-label="Start timer">Start</button>
+                <button id="pause-btn" class="btn secondary" disabled aria-label="Pause timer">Pause</button>
+                <button id="reset-btn" class="btn danger" aria-label="Reset timer">Reset</button>
             </div>
-        </div>
+        </section>
         
         <!-- AdsTerra Banner Ad 3 - After Controls -->
         <div class="ad-banner">
@@ -407,8 +503,8 @@
             <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
         </div>
         
-        <div class="workout-presets">
-            <h3>Quick Presets</h3>
+        <section class="workout-presets">
+            <h3>Quick Workout Presets</h3>
             <div class="preset-buttons">
                 <button class="preset-btn" data-time="30">30s</button>
                 <button class="preset-btn" data-time="60">1min</button>
@@ -418,7 +514,7 @@
                 <button class="preset-btn" data-time="1800">30min</button>
                 <button class="preset-btn" data-time="3600">1hr</button>
             </div>
-        </div>
+        </section>
 
         <!-- AdsTerra Banner Ad 4 - After Presets -->
         <div class="ad-native">
@@ -433,7 +529,34 @@
             </script>
             <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
         </div>
-    </div>
+
+        <!-- SEO Content Section -->
+        <section class="seo-content">
+            <h2>Best Free Online Workout Timer</h2>
+            <p>Our workout timer app is the perfect solution for fitness enthusiasts looking for a reliable interval timer. Whether you're doing HIIT workouts, gym exercises, or home fitness routines, this customizable timer will help you stay on track with your workout schedule.</p>
+            
+            <div class="features-grid">
+                <div class="feature">
+                    <h4>🎯 Customizable Intervals</h4>
+                    <p>Set hours, minutes, and seconds for your perfect workout timing</p>
+                </div>
+                <div class="feature">
+                    <h4>🔊 Sound Alerts</h4>
+                    <p>Audio notifications to keep you focused during workouts</p>
+                </div>
+                <div class="feature">
+                    <h4>⚡ Quick Presets</h4>
+                    <p>Pre-configured timers for common workout durations</p>
+                </div>
+                <div class="feature">
+                    <h4>📱 Mobile Friendly</h4>
+                    <p>Works perfectly on all devices and screen sizes</p>
+                </div>
+            </div>
+
+            <p>This free online timer is perfect for HIIT training, CrossFit workouts, yoga sessions, meditation, studying, and any activity that requires precise time management. No downloads or installations required - just open and start timing your workouts!</p>
+        </section>
+    </main>
 
     <!-- AdsTerra Banner Ad 5 - Before Footer -->
     <div class="ad-banner">
@@ -456,7 +579,7 @@
             <a href="terms.html">Terms & Conditions</a>
             <a href="contact.html">Contact Us</a>
         </div>
-        <p class="footer-copyright">© 2025 Workout Timer App</p>
+        <p class="footer-copyright">© 2025 Workout Timer App - Best Free Fitness Timer Online</p>
     </footer>
 
     <!-- AdsTerra Final Banner -->

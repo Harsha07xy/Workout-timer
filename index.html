@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Timer App</title>
     
-    <!-- Google AdMob -->
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5682053814127626" crossorigin="anonymous"></script>
+    <!-- AdsTerra Popunder Script -->
+    <script type='text/javascript' src='//pl27594374.revenuecpmgate.com/bd/d1/26/bdd126b9cbd4e29a854e3e90dc188ddb.js'></script>
     
     <style>
         * {
@@ -42,6 +42,7 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
+        /* AdsTerra Banner Ad Styles */
         .ad-banner {
             background: rgba(255,255,255,0.1);
             padding: 10px;
@@ -49,7 +50,20 @@
             border-radius: 10px;
             margin-bottom: 20px;
             border: 2px dashed rgba(255,255,255,0.3);
-            min-height: 100px;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ad-native {
+            background: rgba(255,255,255,0.1);
+            padding: 10px;
+            text-align: center;
+            border-radius: 10px;
+            margin: 15px 0;
+            border: 1px solid rgba(255,255,255,0.2);
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -60,7 +74,7 @@
             border-radius: 20px;
             padding: 30px;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             backdrop-filter: blur(10px);
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
         }
@@ -244,45 +258,6 @@
             font-size: 0.9em;
         }
 
-        /* Ad Interstitial Overlay */
-        .interstitial-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 10000;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .interstitial-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            color: #333;
-            max-width: 90%;
-            max-height: 90%;
-        }
-
-        .close-ad {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255,255,255,0.8);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            cursor: pointer;
-            color: #333;
-        }
-
         /* Responsive Design */
         @media (max-width: 480px) {
             .container {
@@ -306,8 +281,8 @@
                 font-size: 0.9em;
             }
 
-            .ad-banner {
-                min-height: 80px;
+            .ad-banner, .ad-native {
+                min-height: 60px;
                 padding: 5px;
             }
 
@@ -363,19 +338,37 @@
             <h1>💪 Workout Timer</h1>
         </div>
         
-        <!-- AdMob Banner Ad -->
-        <div id="banner-ad" class="ad-banner">
-            <ins class="adsbygoogle"
-                 style="display:block; width:100%; height:100px;"
-                 data-ad-client="ca-pub-5682053814127626"
-                 data-ad-slot="8073665512"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
+        <!-- AdsTerra Banner Ad 1 - Top -->
+        <div class="ad-banner">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'e7a72e1210adb221304413f1e9d53f21',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
         </div>
         
         <div class="timer-display">
             <div id="time-display">00:00</div>
             <div class="timer-status" id="timer-status">Ready to Start</div>
+        </div>
+        
+        <!-- AdsTerra Banner Ad 2 - After Timer -->
+        <div class="ad-native">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'e7a72e1210adb221304413f1e9d53f21',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
         </div>
         
         <div class="controls">
@@ -397,6 +390,20 @@
             </div>
         </div>
         
+        <!-- AdsTerra Banner Ad 3 - After Controls -->
+        <div class="ad-banner">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'e7a72e1210adb221304413f1e9d53f21',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
+        </div>
+        
         <div class="workout-presets">
             <h3>Quick Presets</h3>
             <div class="preset-buttons">
@@ -407,9 +414,37 @@
                 <button class="preset-btn" data-time="600">10min</button>
             </div>
         </div>
+
+        <!-- AdsTerra Banner Ad 4 - After Presets -->
+        <div class="ad-native">
+            <script type="text/javascript">
+                atOptions = {
+                    'key' : 'e7a72e1210adb221304413f1e9d53f21',
+                    'format' : 'iframe',
+                    'height' : 50,
+                    'width' : 320,
+                    'params' : {}
+                };
+            </script>
+            <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
+        </div>
     </div>
 
-    <!-- FOOTER SECTION ADDED -->
+    <!-- AdsTerra Banner Ad 5 - Before Footer -->
+    <div class="ad-banner">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'e7a72e1210adb221304413f1e9d53f21',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
+    </div>
+
+    <!-- FOOTER SECTION -->
     <footer>
         <div class="footer-links">
             <a href="privacy.html">Privacy Policy</a>
@@ -419,21 +454,21 @@
         <p class="footer-copyright">© 2025 Workout Timer App</p>
     </footer>
 
-    <!-- Interstitial Ad Overlay -->
-    <div id="interstitial-overlay" class="interstitial-overlay">
-        <button class="close-ad" onclick="closeInterstitialAd()">×</button>
-        <div class="interstitial-content" id="interstitial-content">
-            <ins class="adsbygoogle"
-                 style="display:block; width:300px; height:250px;"
-                 data-ad-client="ca-pub-5682053814127626"
-                 data-ad-slot="1188940389"></ins>
-        </div>
+    <!-- AdsTerra Final Banner -->
+    <div class="ad-native">
+        <script type="text/javascript">
+            atOptions = {
+                'key' : 'e7a72e1210adb221304413f1e9d53f21',
+                'format' : 'iframe',
+                'height' : 50,
+                'width' : 320,
+                'params' : {}
+            };
+        </script>
+        <script type="text/javascript" src="//www.highperformanceformat.com/e7a72e1210adb221304413f1e9d53f21/invoke.js"></script>
     </div>
     
     <script>
-        // Initialize AdMob Banner Ads
-        (adsbygoogle = window.adsbygoogle || []).push({});
-
         class WorkoutTimer {
             constructor() {
                 this.totalSeconds = 0;
@@ -459,18 +494,13 @@
                 this.resetBtn = document.getElementById('reset-btn');
                 this.presetBtns = document.querySelectorAll('.preset-btn');
                 this.timerDisplayContainer = document.querySelector('.timer-display');
-                this.interstitialOverlay = document.getElementById('interstitial-overlay');
             }
 
             initializeAds() {
-                // Load banner ads
-                setTimeout(() => {
-                    try {
-                        (adsbygoogle = window.adsbygoogle || []).push({});
-                    } catch (e) {
-                        console.log('Banner ad failed to load');
-                    }
-                }, 1000);
+                // AdsTerra initialization
+                console.log('AdsTerra ads initialized');
+                
+                // Popunder will automatically trigger based on AdsTerra settings
             }
             
             bindEvents() {
@@ -609,11 +639,6 @@
                     navigator.vibrate([200, 100, 200, 100, 200]);
                 }
                 
-                // Show interstitial ad every 3rd workout completion
-                if (this.completedWorkouts % 3 === 0) {
-                    this.showInterstitialAd();
-                }
-                
                 this.showNotification('Workout completed! Great job! 💪');
             }
             
@@ -670,33 +695,6 @@
                 }, 3000);
             }
             
-            showInterstitialAd() {
-                console.log('Showing interstitial ad...');
-                
-                // Show overlay
-                this.interstitialOverlay.style.display = 'flex';
-                
-                // Load interstitial ad
-                try {
-                    (adsbygoogle = window.adsbygoogle || []).push({});
-                } catch (e) {
-                    console.log('Interstitial ad failed to load');
-                    // Close overlay if ad fails to load
-                    setTimeout(() => {
-                        this.closeInterstitialAd();
-                    }, 2000);
-                }
-                
-                // Auto close after 10 seconds
-                setTimeout(() => {
-                    this.closeInterstitialAd();
-                }, 10000);
-            }
-
-            closeInterstitialAd() {
-                this.interstitialOverlay.style.display = 'none';
-            }
-            
             saveToStorage() {
                 const data = {
                     totalSeconds: this.totalSeconds,
@@ -733,24 +731,10 @@
             }
         }
 
-        // Global function for closing interstitial ad
-        function closeInterstitialAd() {
-            document.getElementById('interstitial-overlay').style.display = 'none';
-        }
-
         // Initialize the timer when page loads
         document.addEventListener('DOMContentLoaded', () => {
             new WorkoutTimer();
         });
-
-        // Refresh banner ads periodically
-        setInterval(() => {
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            } catch (e) {
-                console.log('Banner ad refresh failed');
-            }
-        }, 60000); // Refresh every minute
 
         // Add PWA support
         if ('serviceWorker' in navigator) {

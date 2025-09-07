@@ -5,9 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Workout Timer App</title>
     
-    <!-- AdsTerra Popunder Script -->
-    <script type='text/javascript' src='//pl27594374.revenuecpmgate.com/bd/d1/26/bdd126b9cbd4e29a854e3e90dc188ddb.js'></script>
-    
     <style>
         * {
             margin: 0;
@@ -101,7 +98,7 @@
 
         .time-inputs {
             display: flex;
-            gap: 20px;
+            gap: 15px;
             margin-bottom: 20px;
             justify-content: center;
         }
@@ -114,10 +111,11 @@
             display: block;
             margin-bottom: 5px;
             opacity: 0.9;
+            font-size: 0.9em;
         }
 
         .input-group input {
-            width: 80px;
+            width: 65px;
             padding: 10px;
             border: none;
             border-radius: 10px;
@@ -269,11 +267,12 @@
             }
             
             .time-inputs {
-                gap: 15px;
+                gap: 10px;
             }
             
             .input-group input {
-                width: 70px;
+                width: 60px;
+                padding: 8px;
             }
             
             .btn {
@@ -353,7 +352,7 @@
         </div>
         
         <div class="timer-display">
-            <div id="time-display">00:00</div>
+            <div id="time-display">00:00:00</div>
             <div class="timer-status" id="timer-status">Ready to Start</div>
         </div>
         
@@ -373,6 +372,10 @@
         
         <div class="controls">
             <div class="time-inputs">
+                <div class="input-group">
+                    <label for="hours">Hours</label>
+                    <input type="number" id="hours" min="0" max="23" value="0">
+                </div>
                 <div class="input-group">
                     <label for="minutes">Minutes</label>
                     <input type="number" id="minutes" min="0" max="59" value="5">
@@ -412,6 +415,8 @@
                 <button class="preset-btn" data-time="180">3min</button>
                 <button class="preset-btn" data-time="300">5min</button>
                 <button class="preset-btn" data-time="600">10min</button>
+                <button class="preset-btn" data-time="1800">30min</button>
+                <button class="preset-btn" data-time="3600">1hr</button>
             </div>
         </div>
 
@@ -481,12 +486,12 @@
                 this.initializeElements();
                 this.bindEvents();
                 this.loadFromStorage();
-                this.initializeAds();
             }
             
             initializeElements() {
                 this.timeDisplay = document.getElementById('time-display');
                 this.timerStatus = document.getElementById('timer-status');
+                this.hoursInput = document.getElementById('hours');
                 this.minutesInput = document.getElementById('minutes');
                 this.secondsInput = document.getElementById('seconds');
                 this.startBtn = document.getElementById('start-btn');
@@ -494,13 +499,6 @@
                 this.resetBtn = document.getElementById('reset-btn');
                 this.presetBtns = document.querySelectorAll('.preset-btn');
                 this.timerDisplayContainer = document.querySelector('.timer-display');
-            }
-
-            initializeAds() {
-                // AdsTerra initialization
-                console.log('AdsTerra ads initialized');
-                
-                // Popunder will automatically trigger based on AdsTerra settings
             }
             
             bindEvents() {
@@ -516,6 +514,7 @@
                 });
                 
                 // Input validation
+                this.hoursInput.addEventListener('input', () => this.updateFromInputs());
                 this.minutesInput.addEventListener('input', () => this.updateFromInputs());
                 this.secondsInput.addEventListener('input', () => this.updateFromInputs());
             }
@@ -524,9 +523,12 @@
                 if (!this.isRunning) {
                     this.totalSeconds = seconds;
                     this.currentSeconds = seconds;
-                    const minutes = Math.floor(seconds / 60);
+                    
+                    const hours = Math.floor(seconds / 3600);
+                    const minutes = Math.floor((seconds % 3600) / 60);
                     const remainingSeconds = seconds % 60;
                     
+                    this.hoursInput.value = hours;
                     this.minutesInput.value = minutes;
                     this.secondsInput.value = remainingSeconds;
                     this.updateDisplay();
@@ -535,9 +537,10 @@
             
             updateFromInputs() {
                 if (!this.isRunning) {
+                    const hours = parseInt(this.hoursInput.value) || 0;
                     const minutes = parseInt(this.minutesInput.value) || 0;
                     const seconds = parseInt(this.secondsInput.value) || 0;
-                    this.totalSeconds = (minutes * 60) + seconds;
+                    this.totalSeconds = (hours * 3600) + (minutes * 60) + seconds;
                     this.currentSeconds = this.totalSeconds;
                     this.updateDisplay();
                 }
@@ -643,11 +646,17 @@
             }
             
             updateDisplay() {
-                const minutes = Math.floor(this.currentSeconds / 60);
+                const hours = Math.floor(this.currentSeconds / 3600);
+                const minutes = Math.floor((this.currentSeconds % 3600) / 60);
                 const seconds = this.currentSeconds % 60;
                 
-                this.timeDisplay.textContent = 
-                    `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                if (hours > 0) {
+                    this.timeDisplay.textContent = 
+                        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                } else {
+                    this.timeDisplay.textContent = 
+                        `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+                }
             }
             
             playNotificationSound() {
@@ -719,8 +728,11 @@
                     this.isPaused = false;
                     
                     if (this.totalSeconds > 0) {
-                        const minutes = Math.floor(this.totalSeconds / 60);
+                        const hours = Math.floor(this.totalSeconds / 3600);
+                        const minutes = Math.floor((this.totalSeconds % 3600) / 60);
                         const seconds = this.totalSeconds % 60;
+                        
+                        this.hoursInput.value = hours;
                         this.minutesInput.value = minutes;
                         this.secondsInput.value = seconds;
                         
